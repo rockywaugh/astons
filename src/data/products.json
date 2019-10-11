@@ -1,0 +1,92 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Scotch Bonnet Pepper",
+      "description": "One of the most sought after peppers in the caribbean.  Order this flavorful and spicy pepper today!",
+      "keywords": [
+        "pepper",
+        "spice",
+        "hot",
+        "spicy"
+      ],
+      "image": "scotch-bonnet.png",
+      "price": 2.10
+    },
+    {
+      "id": 2,
+      "name": "Eve Browning",
+      "description": "Get your browning sauce right here to make the best stew chicken. Order this flavorful and spicy pepper today!",
+      "keywords": [
+        "browning",
+        "sauce",
+        "brown"
+      ],
+      "image": "eve-browning.png",
+      "price": 2.00
+    },
+    {
+      "id": 3,
+      "name": "Walkerswood Jerk Marinade 500ml",
+      "description": "One of the most sought after Jerk marinades in the US.  Order this flavorful and spicy sauce today!",
+      "keywords": [
+        "pepper",
+        "spice",
+        "hot",
+        "spicy"
+      ],
+      "image": "walkerwood-marinade.png",
+      "price": 4.50
+    },
+    {
+      "id": 4,
+      "name": "Excelsior Water Crackers",
+      "description": "Best crackers for your tea!",
+      "keywords": [
+        "crackers",
+        "snack",
+        "tea",
+        "salt"
+      ],
+      "image": "excelsior-crackers-reg.jpg",
+      "price": 2.00
+    },
+    {
+      "id": 5,
+      "name": "Grace Fish Tea",
+      "description": "Get your favorite fish tea seasoning from Grace here!",
+      "keywords": [
+        "fish",
+        "tea",
+        "grace",
+        "spicy"
+      ],
+      "image": "grace-fish-tea.png",
+      "price": 1.00
+    },
+    {
+      "id": 6,
+      "name": "D&G Soda - Pineapple",
+      "description": "The world famous D&G sodas sold here! Get your favorite pineapple flavor now!",
+      "keywords": [
+        "soda",
+        "pineapple",
+        "d&g"
+      ],
+      "image": "d&g-soda-pineapple.png",
+      "price": 1.20
+    },
+    {
+      "id": 7,
+      "name": "Milo",
+      "description": "Buy your Milo hot cocoa here for those cold nights!",
+      "keywords": [
+        "cocoa",
+        "chocolate",
+        "hot"
+      ],
+      "image": "milo-300ml.png",
+      "price": 5.00
+    }
+  ]
+}
