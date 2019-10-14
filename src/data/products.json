@@ -61,31 +61,43 @@
         "grace",
         "spicy"
       ],
-      "image": "grace-fish-tea.png",
+      "image": "fish-tea.png",
       "price": 1.00
     },
     {
       "id": 6,
-      "name": "D&G Soda - Pineapple",
-      "description": "The world famous D&G sodas sold here! Get your favorite pineapple flavor now!",
+      "name": "Mackrel",
+      "description": "Get your mackrel shipped to you fresh now!",
       "keywords": [
         "soda",
         "pineapple",
         "d&g"
       ],
-      "image": "d&g-soda-pineapple.png",
+      "image": "mackrel.png",
       "price": 1.20
     },
     {
       "id": 7,
-      "name": "Milo",
-      "description": "Buy your Milo hot cocoa here for those cold nights!",
+      "name": "Yams",
+      "description": "Yellow yams for your favorite dishes, shipped to you fresh!",
       "keywords": [
         "cocoa",
         "chocolate",
         "hot"
       ],
-      "image": "milo-300ml.png",
+      "image": "yam.png",
+      "price": 5.00
+    },
+    {
+      "id": 8,
+      "name": "Golden Krust Beef Patty",
+      "description": "Tasty beef patty shipped straight to you!",
+      "keywords": [
+        "cocoa",
+        "chocolate",
+        "hot"
+      ],
+      "image": "golden-krust-beef-patty.png",
       "price": 5.00
     }
   ]
