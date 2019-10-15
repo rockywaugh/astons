@@ -12,7 +12,7 @@ const Navigation = (props) => <nav>
 
 function App() {
   return (
-    <div className="App">
+    <div className="page-container">
       <Navigation />
       <Router></Router>
     </div>
