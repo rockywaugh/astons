@@ -3,6 +3,7 @@ import React from 'react'
 export default function ProductListItem(props) {
 
     const thisItemInCart = props.cart.filter(item => item.id === props.product.id)[0];
+    //const productImage = require(`../../images/products/${props.product.image}`);
 
     return <div className='product-list-item'>
         <h3> {props.product.name}</h3>
