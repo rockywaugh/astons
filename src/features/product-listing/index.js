@@ -10,7 +10,8 @@ function ProductListing(props) {
                 <ProductListItem
                     product={product}
                     addToCart={props.addToCart}
-                    cart={cartItemsWithQuantities(props.cart)}
+                    removeFromCart={props.removeFromCart}
+                    cartItem={props.cart.filter(cartItem => cartItem.id === product.id)[0]}
                 />)
         }
     </div>
@@ -30,7 +31,7 @@ function mapDispatchToProps(dispatch) {
         addToCart: (item) => {
             dispatch({type: 'add', payload: item})
         },
-        removefromCart: (item) => {
+        removeFromCart: (item) => {
             dispatch({type: 'remove', payload: item})
         }
     }
