@@ -1,6 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+const sort = (items) => {
+  console.log(items);
+  // First time called takes 0,1 indices, next time 1,2 indices
+  return items.sort((a, b) => a.id < b.id)
+}
+
 function Cart(props) {
   return <table>
     <thead>
@@ -13,7 +19,7 @@ function Cart(props) {
     </thead>
     <tbody>
     {
-      props.cart.map(item => <tr>
+      sort(props.cart).map(item => <tr>
         <td>{item.name}</td>
         <td>{item.quantity}</td>
         <td>
@@ -60,4 +66,5 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps)(Cart)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)

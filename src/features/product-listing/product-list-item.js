@@ -3,6 +3,9 @@ import AddToCartButton from './button-add-to-cart'
 import RemoveFromCartButton from './button-remove-from-cart'
 
 export default function ProductListItem(props) {
+
+    //console.log(props);
+
     return <div className='product-list-item'>
         <h3> {props.product.name}</h3>
         <img
@@ -25,7 +28,7 @@ export default function ProductListItem(props) {
                   <RemoveFromCartButton
                     cartItem={props.cartItem}
                     product={props.product}
-                    removeFromCart={props.removeFromCart()}
+                    removeFromCart={props.removeFromCart}
                   /> : null
             }
 
