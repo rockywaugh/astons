@@ -47,12 +47,17 @@ function Cart(props) {
 }
 
 function mapStateToProps(state) {
+
+  console.log('cart index, mapStateToProps');
+
   return {
     cart: state.cart
   }
 }
 
 function mapDispatchToProps(dispatch) {
+  console.log('cart index, mapDispatchToProps');
+
   return {
     addToCart: (item) => {
       dispatch({type: 'add', payload: item})

@@ -6,6 +6,8 @@ import Cart from '../cart'
 function Checkout(props) {
   const { cart } = props;
 
+  console.log('checkout index', cart);
+
   return <div>
     <div style={{ border: '1px solid black'}}>
       <Cart/>
@@ -14,6 +16,8 @@ function Checkout(props) {
 }
 
 function mapStateToProps(state) {
+  console.log('cart index, mapStateToProps');
+  console.log(state);
   return {
     cart: state.cart,
   }

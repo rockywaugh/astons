@@ -3,7 +3,7 @@ require('es6-promise').polyfill();
 
 export default function fetchApi(method, url, data) {
   const body = method.toLowerCase() === 'get' ? {} : { body: JSON.stringify(data) };
-  const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+  //const proxyurl = 'https://cors-anywhere.herokuapp.com/';
 
   return fetch(url, {
     method,
