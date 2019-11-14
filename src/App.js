@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-
 import Router from './Router';
+
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import CheckoutForm from './CheckoutForm';
 
 const Navigation = ({ cart }) => <nav>
   <ul className="top-menu">
@@ -14,6 +16,25 @@ const Navigation = ({ cart }) => <nav>
   </ul>
 </nav>;
 
+/*
+class App extends Component {
+  render() {
+    return (
+      <StripeProvider apiKey="pk_live_Zrar5vpahTcYIbdnqdaJXpLt00cy9xZqOm">
+        <div className="example">
+          <h1>React Stripe Elements Example</h1>
+          <Elements>
+            <CheckoutForm />
+          </Elements>
+        </div>
+      </StripeProvider>
+    );
+  }
+}
+
+export default App;
+
+*/
 class App extends Component {
   render() {
     return <div className="page-container">
@@ -30,3 +51,4 @@ function mapStateToProps(state) {
 }
 
 export default withRouter(connect(mapStateToProps)(App)); // withRouter needed to wrap redux connect with react routing
+

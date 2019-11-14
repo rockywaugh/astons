@@ -5,10 +5,10 @@ const sort = (items) => {
   //console.log(items);
   // First time called takes 0,1 indices, next time 1,2 indices
   return items.sort((a, b) => a.id < b.id)
-}
+};
 
 function Cart(props) {
-  return <table>
+  return props.cart.length ? <table>
     <thead>
     <tr>
       <th>Item</th>
@@ -43,12 +43,12 @@ function Cart(props) {
       </tr>)
     }
     </tbody>
-  </table>
+  </table> : <div></div>
 }
 
 function mapStateToProps(state) {
 
-  console.log('cart index, mapStateToProps');
+  //console.log('cart index, mapStateToProps');
 
   return {
     cart: state.cart
@@ -56,7 +56,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  console.log('cart index, mapDispatchToProps');
+  //console.log('cart index, mapDispatchToProps');
 
   return {
     addToCart: (item) => {
