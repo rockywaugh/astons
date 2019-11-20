@@ -1,5 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import { withRouter } from 'react-router-dom'
+//import {NavLink} from "react-router-dom";
 
 const sort = (items) => {
   //console.log(items);
@@ -8,42 +10,51 @@ const sort = (items) => {
 };
 
 function Cart(props) {
-  return props.cart.length ? <table>
-    <thead>
-    <tr>
-      <th>Item</th>
-      <th>Quantity</th>
-      <th></th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    {
-      sort(props.cart).map(item => <tr>
-        <td>{item.name}</td>
-        <td>{item.quantity}</td>
-        <td>
-          <button
-            onClick={(e) => props.addToCart(item)}
-          >+
-          </button>
+  console.log('cart', props.cart);
+  const { pathname } = props.location;
+  return props.cart.length ?
+      <ul className="list-group mb-3">
+        {
+          sort(props.cart).map(item => <li className="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 className="my-0">{item.name} ({item.quantity})</h6>
+              <small className="text-muted">Brief description</small>
+            </div>
+            <span className="text-muted">
+            ${Number(item.quantity * item.price).toFixed(2)}
 
-          <button
-            onClick={(e) => props.removeFromCart(item)}
-          >-
-          </button>
+            <div className={pathname === '/cart' ? "items btn-group btn-group-sm" : "d-none"} role="group" aria-label="Small button group">
+              <button type="button"
+                      className="btn btn-secondary"
+                      onClick={(e) => props.addToCart(item)}>+
+              </button>
+              <button type="button"
+                      className="btn btn-secondary"
+                      onClick={(e) => props.removeFromCart(item)}>-
+              </button>
+              <button type="button"
+                      className="btn btn-secondary"
+                      onClick={(e) => props.removeAllFromCart(item)}>x
+              </button>
+            </div>
 
-          <button
-            onClick={(e) => props.removeAllFromCart(item)}
-          >Remove all from cart
-          </button>
-        </td>
-        <td>
-        </td>
-      </tr>)
-    }
-    </tbody>
-  </table> : <div></div>
+          </span>
+          </li>)
+        }
+        <li className="list-group-item d-flex justify-content-between bg-light">
+          <div className="text-success">
+            <h6 className="my-0">Promo code</h6>
+            <small>EXAMPLECODE</small>
+          </div>
+          <span className="text-success">-$5</span>
+        </li>
+        <li className="list-group-item d-flex justify-content-between">
+          <span>Total(USD)</span>
+          <strong>${props.cart.reduce((acc, item) => {
+            return (acc + (Number(item.quantity * item.price)))
+          })}</strong>
+        </li>
+      </ul> : <div/>
 }
 
 function mapStateToProps(state) {
@@ -57,7 +68,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   //console.log('cart index, mapDispatchToProps');
-
   return {
     addToCart: (item) => {
       dispatch({type: 'add', payload: item})
@@ -72,4 +82,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Cart))

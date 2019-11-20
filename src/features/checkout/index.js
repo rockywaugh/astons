@@ -39,19 +39,21 @@ function submitOrder(values, cart) {
 function Checkout(props) {
   const {cart} = props;
 
-  //console.log('checkout index', cart);
-
-  return <div style={{padding:'25px', border: '1px solid gray'}}>
-    <Cart/>
-    <StripeProvider apiKey="pk_live_Zrar5vpahTcYIbdnqdaJXpLt00cy9xZqOm">
-      <Elements>
-        <CheckoutForm onSubmit={(values) => {
-
-          return submitOrder(values, cart)
-
-        }}/>
-      </Elements>
-    </StripeProvider>
+  return <div className="container">
+    <div className="row">
+      <div className="col-md-4 order-md-2 mb-4">
+        <Cart/>
+      </div>
+      <div className="col-md-8 order-md-1">
+        <StripeProvider apiKey="pk_live_Zrar5vpahTcYIbdnqdaJXpLt00cy9xZqOm">
+          <Elements>
+            <CheckoutForm onSubmit={(values) => {
+              return submitOrder(values, cart)
+            }}/>
+          </Elements>
+        </StripeProvider>
+      </div>
+    </div>
   </div>
 }
 
