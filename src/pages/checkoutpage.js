@@ -2,8 +2,7 @@ import React from 'react';
 import Checkout from '../features/checkout'
 
 export default function CheckoutPage(props) {
-  return <div>
-    <h2>Check Out</h2>
+  return <div className="checkout-container">
     <Checkout />
   </div>
 }

@@ -9,6 +9,7 @@ const Router = () => (
   <Switch>
     <Route exact path='/' component={HomePage} />
     <Route exact path='/cart' component={CartPage} />
+    <Route exact path='/store' component={HomePage} />
     <Route exact path='/checkout' component={CheckoutPage} />
     <Route path='/orders/:id' component={OrdersPage} />
   </Switch>

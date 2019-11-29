@@ -10,7 +10,7 @@ const sort = (items) => {
 };
 
 function Cart(props) {
-  console.log('cart', props.cart);
+  //console.log('cart', props.cart);
   const { pathname } = props.location;
   return props.cart.length ?
       <ul className="list-group mb-3">
@@ -53,7 +53,7 @@ function Cart(props) {
           <strong>${props.cart.reduce((acc, item) => {
             console.log('acc', acc);
             console.log('item', item);
-            return (acc + (item.quantity * item.price))
+            return Number(acc + (item.quantity * item.price)).toFixed(2)
           }, 0)}</strong>
         </li>
       </ul> : <div/>

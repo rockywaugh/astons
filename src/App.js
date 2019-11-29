@@ -11,20 +11,23 @@ const Navigation = ({ cart }) => <nav className="navbar navbar-expand-md navbar-
   <NavLink to="#" className="navbar-brand">Astons</NavLink>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
           aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
+    <span className="navbar-toggler-icon"/>
   </button>
   <div className="collapse navbar-collapse" id="navbarCollapse">
     <ul className="navbar-nav mr-auto">
-      <li className="nav-item active">
+      <li className="nav-item">
         <NavLink to='/' className="nav-link">Home</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink to='/cart' className="nav-link">Cart ({cart.reduce((accumulator, item) => {
-        return accumulator + item.quantity; // Become proficient at using "reduce" (along with map, filter)
+        <NavLink to='/store' className="nav-link">Store</NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink to='/cart' className={cart.length ? "nav-link" : "nav-link disabled"}>Cart ({cart.reduce((accumulator, item) => {
+        return (accumulator + item.quantity); // Learn more about "reduce" (along with map, filter)
       }, 0)})</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink to='/checkout' className="nav-link disabled">Check Out</NavLink>
+        <NavLink to='/checkout' className={cart.length ? "nav-link" : "nav-link disabled"}>Check Out</NavLink>
       </li>
     </ul>
     <form className="form-inline mt-2 mt-md-0">

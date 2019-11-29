@@ -12,11 +12,11 @@ export default function ProductListItem(props) {
           title={props.product.name}
           src={`/images/products/${props.product.image}`}
         />
-        <h2>{props.product.name}</h2>
-        <p>{props.product.description}</p>
-        <p>${props.product.price}</p>
+        <h5>{props.product.name}</h5>
+        <p className="description">{props.product.description}</p>
+        <p>${Number(props.product.price).toFixed(2)}</p>
         <p>
-            <div className="items btn-group btn-group-sm" role="group" aria-label="Small button group">
+            <div className="items btn-group-sm" role="group" aria-label="Small button group">
                 <AddToCartButton
                   cartItem={props.cartItem}
                   product={props.product}

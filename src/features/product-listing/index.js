@@ -20,7 +20,7 @@ class ProductListing extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     // Destructure to variables (sets variables to values of the matching properties from "this.props")
     const {addToCart, removeFromCart, products, cart} = this.props;
     return <div className='product-listing'>
