@@ -3,35 +3,34 @@ import AddToCartButton from './button-add-to-cart'
 import RemoveFromCartButton from './button-remove-from-cart'
 
 export default function ProductListItem(props) {
-
     //console.log(props);
 
     return <div className='product-list-item'>
-        <h3> {props.product.name}</h3>
         <img
-            alt={props.product.name}
-            height={100}
-            title={props.product.name}
-            src={`/images/products/${props.product.image}`}
+          alt={props.product.name}
+          height={100}
+          title={props.product.name}
+          src={`/images/products/${props.product.image}`}
         />
-        <div>{props.product.description}</div>
-        <div>${props.product.price}</div>
-        <div>
-            <AddToCartButton
-              cartItem={props.cartItem}
-              product={props.product}
-              addToCart={props.addToCart}
-            />
-
-            {
-                props.cartItem ?
-                  <RemoveFromCartButton
-                    cartItem={props.cartItem}
-                    product={props.product}
-                    removeFromCart={props.removeFromCart}
-                  /> : null
-            }
-
-        </div>
+        <h2>{props.product.name}</h2>
+        <p>{props.product.description}</p>
+        <p>${props.product.price}</p>
+        <p>
+            <div className="items btn-group btn-group-sm" role="group" aria-label="Small button group">
+                <AddToCartButton
+                  cartItem={props.cartItem}
+                  product={props.product}
+                  addToCart={props.addToCart}
+                />
+                {
+                    props.cartItem ?
+                      <RemoveFromCartButton
+                        cartItem={props.cartItem}
+                        product={props.product}
+                        removeFromCart={props.removeFromCart}
+                      /> : null
+                }
+            </div>
+        </p>
     </div>
 }

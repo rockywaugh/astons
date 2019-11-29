@@ -51,8 +51,10 @@ function Cart(props) {
         <li className="list-group-item d-flex justify-content-between">
           <span>Total(USD)</span>
           <strong>${props.cart.reduce((acc, item) => {
-            return (acc + (Number(item.quantity * item.price)))
-          })}</strong>
+            console.log('acc', acc);
+            console.log('item', item);
+            return (acc + (item.quantity * item.price))
+          }, 0)}</strong>
         </li>
       </ul> : <div/>
 }
