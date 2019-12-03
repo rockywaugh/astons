@@ -27,11 +27,16 @@ span > .items {
 }
 
 .product-list-item {
+  margin-bottom: 40px;
   border-bottom: 2px solid #ddd;
 }
 
+.product-list-item img {
+  margin-bottom: 25px;
+}
+
 .product-list-item .description {
-  height: 95px;
+  height: 65px;
 }
 
 .product-list-item .btn-danger {

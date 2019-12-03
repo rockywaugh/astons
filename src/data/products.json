@@ -10,7 +10,7 @@
         "hot",
         "spicy"
       ],
-      "image": "scotch-bonnet.png",
+      "image": "scotch-bonnet-3.png",
       "price": 2.10
     },
     {
@@ -35,7 +35,7 @@
         "hot",
         "spicy"
       ],
-      "image": "walkerswood-marinade.png",
+      "image": "walkerswood-jerk-marinade-500ml.png",
       "price": 4.50
     },
     {
@@ -48,7 +48,7 @@
         "tea",
         "salt"
       ],
-      "image": "excelsior-crackers-reg.jpg",
+      "image": "excelsior-water-crackers-reg.png",
       "price": 2.00
     },
     {
@@ -61,7 +61,7 @@
         "grace",
         "spicy"
       ],
-      "image": "fish-tea.png",
+      "image": "grace-fish-tea.png",
       "price": 1.00
     },
     {

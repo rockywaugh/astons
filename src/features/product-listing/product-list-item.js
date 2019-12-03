@@ -7,8 +7,9 @@ export default function ProductListItem(props) {
 
     return <div className='product-list-item'>
         <img
+          className="rounded mx-auto d-block"
           alt={props.product.name}
-          height={100}
+          height={200}
           title={props.product.name}
           src={`/images/products/${props.product.image}`}
         />
