@@ -4,7 +4,7 @@ import ProductListing from '../features/product-listing';
 
 export default function Homepage(props) {
   const {pathname} = props.location;
-  return <div>
+  return <div className="homepage">
     <main role="main">
 
       <div id="myCarousel" className={pathname === '/store' ? "hidden" : "carousel slide"} data-ride="carousel">
