@@ -78,14 +78,14 @@
     },
     {
       "id": 7,
-      "name": "Yams",
+      "name": "Yellow Yams",
       "description": "Yellow yams for your favorite dishes, shipped to you fresh!",
       "keywords": [
         "cocoa",
         "chocolate",
         "hot"
       ],
-      "image": "yam.png",
+      "image": "yellow-yam.png",
       "price": 5.00
     },
     {

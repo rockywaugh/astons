@@ -146,7 +146,7 @@ export default function Homepage(props) {
 
       <footer className="container">
         <p className="float-right"><a href="/">Back to top</a></p>
-        <p>© 2017-2019 Aston, Inc. · <a href="/">Privacy</a> · <a href="/">Terms</a></p>
+        <p>© 2017-2019 Aston Caribbean Foods · <a href="/">Privacy</a> · <a href="/">Terms</a></p>
       </footer>
     </main>
   </div>
