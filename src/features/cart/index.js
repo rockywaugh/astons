@@ -10,7 +10,7 @@ const sort = (items) => {
 };
 
 function Cart(props) {
-  console.log('cart', props.cart);
+  //console.log('cart', props.cart);
   const { pathname } = props.location;
   return props.cart.length ?
       <ul className="list-group mb-3">
@@ -21,7 +21,7 @@ function Cart(props) {
                 <small className={pathname === '/cart' ? "text-muted" : "d-none"}>{item.description}</small>
             </div>
             <span className="text-muted">
-            ${Number(item.quantity * item.price).toFixed(2)}
+            ${Number(item.quantity * item.price).toFixed(2)} <span className={pathname === '/cart' ? "price-info" : "d-none"}>({item.quantity} x {item.price.toFixed(2)})</span>
 
             <div className={pathname === '/cart' ? "items btn-group btn-group-sm" : "d-none"} role="group" aria-label="Small button group">
               <button type="button"

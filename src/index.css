@@ -58,3 +58,7 @@ span > .items {
 .homepage {
   margin-top: 38px;
 }
+
+.cart .price-info {
+  font-size: small;
+}
