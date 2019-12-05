@@ -1,18 +1,18 @@
-import React, { Component } from 'react'
-import { NavLink, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
+import React, {Component} from 'react'
+import {NavLink, withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 import Router from './Router'
 /*
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm';
 */
 
-const Navigation = ({ cart }) => <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+const Navigation = ({cart}) => <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <NavLink to="/" className="navbar-brand">
     <img
       alt="Aston"
       title="Aston"
-      src={`images/assets/aston-logo.png`}/>
+      src={`images/assets/aston-logo-small.png`}/>
   </NavLink>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
           aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,9 +28,10 @@ const Navigation = ({ cart }) => <nav className="navbar navbar-expand-md navbar-
         <NavLink to='/store' className="nav-link">Store</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink to='/cart' className={cart.length ? "nav-link" : "nav-link disabled"}>Cart ({cart.reduce((accumulator, item) => {
-        return (accumulator + item.quantity); // Learn more about "reduce" (along with map, filter)
-      }, 0)})</NavLink>
+        <NavLink to='/cart' className={cart.length ? "nav-link" : "nav-link disabled"}>Cart
+          ({cart.reduce((accumulator, item) => {
+            return (accumulator + item.quantity); // Learn more about "reduce" (along with map, filter)
+          }, 0)})</NavLink>
       </li>
       <li className="nav-item">
         <NavLink to='/checkout' className={cart.length ? "nav-link" : "nav-link disabled"}>Check Out</NavLink>
@@ -38,7 +39,7 @@ const Navigation = ({ cart }) => <nav className="navbar navbar-expand-md navbar-
     </ul>
     <form className="form-inline mt-2 mt-md-0">
       <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>;
@@ -64,7 +65,7 @@ export default App;
 class App extends Component {
   render() {
     return <div className="page-container">
-      <Navigation { ...this.props }/>
+      <Navigation {...this.props}/>
       <Router/>
     </div>
   }

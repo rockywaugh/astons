@@ -6,9 +6,9 @@ const itemInCart = (cart, item) => cart.filter(cartItem => cartItem.id === item.
 const addToCart = (cart, item) => {
   const cartItem = itemInCart(cart, item);
 
-  return !cartItem ?
-    [...cartWithoutItem(cart, item), {...item, quantity: 1}] :
-    [...cartWithoutItem(cart, item), {...cartItem, quantity: cartItem.quantity + 1}]
+  return !cartItem
+    ? [...cartWithoutItem(cart, item), {...item, quantity: 1}]
+    : [...cartWithoutItem(cart, item), {...cartItem, quantity: cartItem.quantity + 1}]
 };
 
 // Local helper function

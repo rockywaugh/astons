@@ -31,6 +31,10 @@ span > .items {
   border-bottom: 2px solid #ddd;
 }
 
+.product-list-item div {
+  margin-bottom: 20px;
+}
+
 .product-list-item img {
   margin-bottom: 25px;
 }

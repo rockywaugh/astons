@@ -25,13 +25,13 @@ class ProductListing extends React.Component {
     const {addToCart, removeFromCart, products, cart} = this.props;
     return <div className='product-listing'>
       {
-        transformProductsForListing(products, 3).map(productRow => {
+        transformProductsForListing(products, 3).map((productRow, index) => {
           return (
-            <div className="row">
+            <div key={`row${index}`} className="row">
               {
-                productRow.map(product => {
+                productRow.map((product, index2) => {
                   return (
-                    <div className="col-lg-4">
+                    <div key={`row${index}col${index2}`} className="col-lg-4">
                       <ProductListItem
                         product={product}
                         addToCart={addToCart}

@@ -6,19 +6,19 @@ import { withRouter } from 'react-router-dom'
 const sort = (items) => {
   //console.log(items);
   // First time called takes 0,1 indices, next time 1,2 indices
-  return items.sort((a, b) => a.id < b.id)
+  return items.sort((a, b) => a.id - b.id)
 };
 
 function Cart(props) {
-  //console.log('cart', props.cart);
+  console.log('cart', props.cart);
   const { pathname } = props.location;
   return props.cart.length ?
       <ul className="list-group mb-3">
         {
-          sort(props.cart).map(item => <li className="list-group-item d-flex justify-content-between lh-condensed">
+          sort(props.cart).map((item, index) => <li key={`cartItem${index}`} className="list-group-item d-flex justify-content-between lh-condensed">
             <div>
               <h6 className="my-0">{item.name} ({item.quantity})</h6>
-              <small className="text-muted">Brief description</small>
+                <small className={pathname === '/cart' ? "text-muted" : "d-none"}>{item.description}</small>
             </div>
             <span className="text-muted">
             ${Number(item.quantity * item.price).toFixed(2)}
@@ -51,18 +51,14 @@ function Cart(props) {
         <li className="list-group-item d-flex justify-content-between">
           <span>Total(USD)</span>
           <strong>${props.cart.reduce((acc, item) => {
-            console.log('acc', acc);
-            console.log('item', item);
-            return Number(acc + (item.quantity * item.price)).toFixed(2)
-          }, 0)}</strong>
+            return acc + (item.quantity * item.price)
+          }, 0).toFixed(2)}</strong>
         </li>
       </ul> : <div/>
 }
 
 function mapStateToProps(state) {
-
   //console.log('cart index, mapStateToProps');
-
   return {
     cart: state.cart
   }
