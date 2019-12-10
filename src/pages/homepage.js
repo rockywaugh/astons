@@ -22,10 +22,8 @@ export default function Homepage(props) {
             </svg>
             <div className="container">
               <div className="carousel-caption text-left">
-                <h1>Example headline.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
-                  eget
-                  metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <h1>Your hub for caribbean lifestyle.</h1>
+                <p> The favorite element of Caribbean Lifestyle.  It's Food</p>
                 <p><a className="btn btn-lg btn-primary" href="/" role="button">Sign up today</a></p>
               </div>
             </div>
@@ -37,10 +35,8 @@ export default function Homepage(props) {
             </svg>
             <div className="container">
               <div className="carousel-caption">
-                <h1>Another example headline.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
-                  eget
-                  metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <h1>Direct shipping</h1>
+                <p>Your yam and other afro-caribbean foods, straight from yard. Ready for your purchase!</p>
                 <p><a className="btn btn-lg btn-primary" href="/" role="button">Learn more</a></p>
               </div>
             </div>

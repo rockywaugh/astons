@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import {loadState, saveState} from '../modules/local-storage';
+import { loadState, saveState } from '../modules/local-storage';
 
 import cartReducer from '../features/cart/reducer';
 import productsReducer from '../features/product-listing/reducer';
