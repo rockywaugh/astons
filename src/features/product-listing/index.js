@@ -2,7 +2,8 @@ import React from 'react'
 import ProductListItem from './product-list-item';
 import {connect} from 'react-redux';
 
-import fetchApi from '../../modules/fetch-api'
+import fetchApi from '../../modules/fetch-api';
+import queryString from 'querystring';
 
 // Converted from stateless function to a life cycle class
 class ProductListing extends React.Component {
@@ -12,6 +13,7 @@ class ProductListing extends React.Component {
   // https://reactjs.org/docs/react-component.html#componentdidmount
   componentDidMount() {
     const {loadProducts} = this.props; // keyed in from redux - Destructure loadProducts out of this.props
+
     //fetchApi('get', "https://cc-rocky.firebaseapp.com/products.json")
     fetchApi('get', 'products.json')
       .then((json => {
@@ -20,12 +22,26 @@ class ProductListing extends React.Component {
   }
 
   render() {
-    // console.log(this.props);
     // Destructure to variables (sets variables to values of the matching properties from "this.props")
     const {addToCart, removeFromCart, products, cart} = this.props;
+
+    // Create query object from location search
+    const query = queryString.parse(document.location.search.replace('?', ''));
+    const searchString = query.search ? query.search.toLowerCase() : '';
+
+    let filteredProducts = products;
+
+    // Apply filter to products from query string
+    if (searchString) {
+      filteredProducts = products.filter(product => (
+        product.description.toLowerCase().includes(searchString)
+          || product.name.toLowerCase().includes(searchString)
+      ))
+    }
+
     return <div className='product-listing'>
       {
-        transformProductsForListing(products, 3).map((productRow, index) => {
+        transformProductsForListing(filteredProducts, 3).map((productRow, index) => {
           return (
             <div key={`row${index}`} className="row">
               {

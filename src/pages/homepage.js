@@ -22,7 +22,7 @@ export default function Homepage(props) {
             </svg>
             <div className="container">
               <div className="carousel-caption text-left">
-                <h1>Your hub for caribbean lifestyle.</h1>
+                <h1>Your hub for Caribbean lifestyle.</h1>
                 <p> The favorite element of Caribbean Lifestyle.  It's Food</p>
                 <p><a className="btn btn-lg btn-primary" href="/" role="button">Sign up today</a></p>
               </div>
@@ -143,6 +143,7 @@ export default function Homepage(props) {
       <footer className="container">
         <p className="float-right"><a href="/">Back to top</a></p>
         <p>© 2017-2019 Aston Caribbean Foods · <a href="/">Privacy</a> · <a href="/">Terms</a></p>
+        <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=SfrIgHyWEOkP1ZE2PzygzmKWr6FoB2YInwrTHv898yMdpEQBs6ZMu3HnTaH1"></script></span>
       </footer>
     </main>
   </div>
