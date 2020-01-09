@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {Field, reduxForm} from 'redux-form'
 import {CardElement, injectStripe} from 'react-stripe-elements'
+import fetchApi from '../../modules/fetch-api'
+import { connect } from 'react-redux'
 
 class CheckoutForm extends Component {
 
@@ -9,17 +11,49 @@ class CheckoutForm extends Component {
     this.submit = this.submit.bind(this);
   }
 
+  // TODO: Checkout form has to post: first, last name, email, shipping,
+  //  billing address (offer option if both are same), credit card info
+  // TODO: API has to run credit card purchase first and if successful,
+  //  submit order - adds order to database and notification sent to buyer and seller via email
   submit(values) {
     values.token = this.props.stripe.createToken({name: "Name"});
-    console.log('form submit values', values);
-  }
 
+    console.log('form submit values', values);
+
+    const {email, firstName, lastName} = values.order;
+
+    const {cart} = this.props;
+
+    console.log('form submit cart', cart);
+/*
+    fetchApi('post', '/api/pay', {
+      order: {
+        firstName, // ES6 shorthand, uses the variable name as the key and variable value as the property value
+        lastName,
+        email,
+        token: values.token.id,
+        order_items_attributes: cart.map(item => ({
+          product_id: item.id,
+          qty: item.quantity
+        }))
+      }
+    }).then(json => {
+      if (json.errors) {
+        alert('something went wrong');
+        return
+      }
+      document.location.href = `/orders/${json.id}`
+    })
+*/
+
+  }
   render() {
     const {handleSubmit} = this.props;
-    //console.log('form props', this.props);
+
     return (
       <div className="checkout">
         <h4 className="mb-3">Billing address</h4>
+
         <form onSubmit={handleSubmit(this.submit)}>
 
           <div className="row">
@@ -121,7 +155,13 @@ CheckoutForm = reduxForm({
   form: 'checkout'
 })(CheckoutForm);
 
-export default injectStripe(CheckoutForm);
+function mapStateToProps(state) {
+  return {
+    cart: state.cart,
+  }
+}
+
+export default connect(mapStateToProps)(injectStripe(CheckoutForm));
 
 /*
 function CheckoutForm(props) {

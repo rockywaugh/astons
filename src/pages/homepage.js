@@ -79,10 +79,7 @@ export default function Homepage(props) {
             <div className="col-md-7">
               <h2 className="featurette-heading">First featurette heading. <span className="text-muted">It’ll blow your mind.</span>
               </h2>
-              <p className="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus
-                ac
-                cursus commodo.</p>
+              <p className="lead">At Aston Caribbean Foods we provide the essential connection to home. The favorite element of Caribbean Lifestyle.  It's Food.</p>
             </div>
             <div className="col-md-5">
               <svg className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
@@ -101,9 +98,7 @@ export default function Homepage(props) {
             <div className="col-md-7 order-md-2">
               <h2 className="featurette-heading">Oh yeah, it’s that good. <span
                 className="text-muted">See for yourself.</span></h2>
-              <p className="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus
-                ac cursus commodo.</p>
+              <p className="lead">We also offer a convenient shipping service for your barrels, boxes and crates of household goods, personal items and food.  Weekly Air Cargo flights to Jamaica for online purchases and small packages.</p>
             </div>
             <div className="col-md-5 order-md-1">
               <svg className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
@@ -121,9 +116,7 @@ export default function Homepage(props) {
             <div className="col-md-7">
               <h2 className="featurette-heading">And lastly, this one. <span className="text-muted">Checkmate.</span>
               </h2>
-              <p className="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus
-                ac cursus commodo.</p>
+              <p className="lead">Island-wide Jamaica delivery from ports of Montego Bay and Kingston.  Whatever your needs to connect you to home, we are sure to find a solution for you.</p>
             </div>
             <div className="col-md-5">
               <svg className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"

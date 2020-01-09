@@ -40,7 +40,8 @@ const calculateOrderAmount = items => {
   // Replace this constant with a calculation of the order's amount
   // You should always calculate the order total on the server to prevent
   // people from directly manipulating the amount on the client
-  return 1400;
+  //return 1400;
+  return 1;
 };
 
 app.post("/pay", async (req, res) => {
@@ -65,6 +66,6 @@ app.post("/pay", async (req, res) => {
   }
 });
 
-const portNumber = 4242;
+const portNumber = 3000;
 
 app.listen(portNumber, () => console.log(`Node server listening on port ${portNumber}!`));

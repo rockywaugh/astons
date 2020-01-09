@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "composer": "^4.1.0",
     "es6-promise": "^4.2.8",
     "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.7.2",
@@ -46,5 +47,5 @@
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2"
   },
-  "proxy": "http://localhost:4242"
+  "proxy": "http://localhost:3000"
 }
