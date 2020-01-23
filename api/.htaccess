@@ -1,0 +1,3 @@
+RewriteEngine On # Turn on the rewriting engine
+RewriteRule ^pay/?$ server.php [NC,L]
+RewriteRule ^pay/([0-9]+)/?$ server.php?id=$1 [NC,L]\

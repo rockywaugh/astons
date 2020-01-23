@@ -13,40 +13,50 @@ class CheckoutForm extends Component {
 
   // TODO: Checkout form has to post: first, last name, email, shipping,
   //  billing address (offer option if both are same), credit card info
-  // TODO: API has to run credit card purchase first and if successful,
-  //  submit order - adds order to database and notification sent to buyer and seller via email
   submit(values) {
     values.token = this.props.stripe.createToken({name: "Name"});
+    values.token.then((resp) => {
 
-    console.log('form submit values', values);
+      //console.log('form submit, values', values);
+      const {
+        email, firstName, lastName,
+        address, address2, country,
+        state, zip
+      } = values.order;
+      const {cart} = this.props;
 
-    const {email, firstName, lastName} = values.order;
-
-    const {cart} = this.props;
-
-    console.log('form submit cart', cart);
-/*
-    fetchApi('post', '/api/pay', {
-      order: {
+      const order = {
         firstName, // ES6 shorthand, uses the variable name as the key and variable value as the property value
         lastName,
         email,
-        token: values.token.id,
+        address,
+        address2,
+        country,
+        state,
+        zip,
+        token: resp.token.id,
         order_items_attributes: cart.map(item => ({
           product_id: item.id,
           qty: item.quantity
         }))
-      }
-    }).then(json => {
-      if (json.errors) {
-        alert('something went wrong');
-        return
-      }
-      document.location.href = `/orders/${json.id}`
-    })
-*/
+      };
 
+      console.log('form submit, order', order);
+
+      fetchApi('POST', '/api/pay', {
+        order: order
+      }).then(json => {
+
+        if (json.errors) {
+          alert('something went wrong');
+        }
+
+        // TODO: RE-ENABLE BELOW AFTER API IS SORTED
+        // document.location.href = `/orders/${json.id}`
+      })
+    });
   }
+
   render() {
     const {handleSubmit} = this.props;
 
@@ -84,7 +94,8 @@ class CheckoutForm extends Component {
 
           <div className="mb-3">
             <label htmlFor="order[address]">Address</label>
-            <input type="text" className="form-control" name='order[address]' id="address" placeholder="1234 Main St"
+            <Field type="text" className="form-control" name='order[address]' component="input"
+                   placeholder="1234 Main St"
                    required=""/>
             <div className="invalid-feedback">
               Please enter your shipping address.
@@ -93,34 +104,38 @@ class CheckoutForm extends Component {
 
           <div className="mb-3">
             <label htmlFor="order[address2]">Address 2 <span className="text-muted">(Optional)</span></label>
-            <input type="text" className="form-control" name='order[address2]' id="address2"
+            <Field type="text" className="form-control" name='order[address2]' component="input"
                    placeholder="Apartment or suite"/>
           </div>
 
           <div className="row">
             <div className="col-md-5 mb-3">
               <label htmlFor="order[country]">Country</label>
-              <select className="custom-select d-block w-100" name='order[country]' id="country" required="">
+              <Field className="custom-select d-block w-100" name='order[country]' component="select"
+                     required="">
                 <option value="">Choose...</option>
                 <option>United States</option>
-              </select>
+              </Field>
               <div className="invalid-feedback">
                 Please select a valid country.
               </div>
             </div>
             <div className="col-md-4 mb-3">
               <label htmlFor="order[state]">State</label>
-              <select className="custom-select d-block w-100" name='order[state]' id="state" required="">
+              <Field className="custom-select d-block w-100" name='order[state]' component="select"
+                     required="">
                 <option value="">Choose...</option>
                 <option>California</option>
-              </select>
+              </Field>
               <div className="invalid-feedback">
                 Please provide a valid state.
               </div>
             </div>
             <div className="col-md-3 mb-3">
               <label htmlFor="order[zip]">Zip</label>
-              <input type="text" className="form-control" name='order[zip]' id="zip" placeholder="" required=""/>
+              <Field type="text" className="form-control" name='order[zip]' component="input"
+                     placeholder=""
+                     required=""/>
               <div className="invalid-feedback">
                 Zip code required.
               </div>
@@ -129,12 +144,12 @@ class CheckoutForm extends Component {
 
           <hr className="mb-4"/>
           <div className="custom-control custom-checkbox">
-            <input type="checkbox" className="custom-control-input" name='order[same-address]' id="same-address"/>
+            <Field type="checkbox" className="custom-control-input" name='order[same-address]' component="input"/>
             <label className="custom-control-label" htmlFor="order[same-address]">Shipping address is the same as my
               billing address</label>
           </div>
           <div className="custom-control custom-checkbox">
-            <input type="checkbox" className="custom-control-input" name='order[save-info]' id="save-info"/>
+            <Field type="checkbox" className="custom-control-input" name='order[save-info]' component="input"/>
             <label className="custom-control-label" htmlFor="order[save-info]">Save this information for next
               time</label>
           </div>
