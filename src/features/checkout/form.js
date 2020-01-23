@@ -25,6 +25,8 @@ class CheckoutForm extends Component {
       } = values.order;
       const {cart} = this.props;
 
+      console.log('form submit, cart', cart);
+
       const order = {
         firstName, // ES6 shorthand, uses the variable name as the key and variable value as the property value
         lastName,
@@ -35,8 +37,9 @@ class CheckoutForm extends Component {
         state,
         zip,
         token: resp.token.id,
-        order_items_attributes: cart.map(item => ({
-          product_id: item.id,
+        items: cart.map(item => ({
+          productId: item.id,
+          price: item.price,
           qty: item.quantity
         }))
       };
