@@ -44,7 +44,7 @@ class CheckoutForm extends Component {
         }))
       };
 
-      console.log('form submit, order', order);
+      console.log('form submit, foo order', order);
 
       fetchApi('POST', '/api/pay', {
         order: order
@@ -54,8 +54,10 @@ class CheckoutForm extends Component {
           alert('something went wrong');
         }
 
-        // TODO: RE-ENABLE BELOW AFTER API IS SORTED
-        // document.location.href = `/orders/${json.id}`
+        console.log('payload', json);
+
+
+        //document.location.href = `/orders/${json.id}`
       })
     });
   }

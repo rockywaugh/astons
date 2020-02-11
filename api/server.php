@@ -12,9 +12,7 @@ $request_method = $_SERVER["REQUEST_URI"];
 
 Stripe::setApiKey('sk_test_t8sEn97EZkk6fyWW9bTTmEoP00qIku3U5g');
 
-// TODO: API has to run credit card purchase first and if successful,
-// submit order - adds order to database and notification sent to buyer and seller via email
-// Create helper function to calculate order amount based on data in $order payload
+// Calculate order amount based on data in $order payload
 function calculateOrderAmount($items) {
     $dollarAmount = 0;
     // Error check items
@@ -49,6 +47,11 @@ if (!empty($_POST["order"])) {
             'source' => $order["token"]
         ]
     );
+
+    // TODO: Further work here to check the returned charge value.. Check what successful payload should be
+    // On success, Add purchase to database - update inventory and purchase tables (remove item from inventory and increment "pending_shipments" amount column accordingly)
+    // "pending_shipments" amount columns needs to be updated again after item is shipped)
+    // generate email to buyer and seller (ACF) regarding transaction
     var_dump($charge);
 
 } else {
